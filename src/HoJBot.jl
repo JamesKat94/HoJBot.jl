@@ -9,10 +9,13 @@ using OrderedCollections
 using TimeZones
 using UUIDs
 
+import HTTP
+
 const COMMAND_PREFIX = get(ENV, "HOJBOT_COMMAND_PREFIX", ",")
 
 include("util.jl")
 include("main.jl")
+include("command/discourse.jl")
 include("command/tz.jl")
 include("command/j.jl")
 include("command/gm.jl")
