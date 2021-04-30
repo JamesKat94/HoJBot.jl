@@ -2,5 +2,7 @@ using HoJBot
 using Test
 
 @testset "HoJBot.jl" begin
-    # Write your tests here.
+    include("test_utils.jl")
+    include("test_discourse.jl")
+    include("test_ig.jl")
 end
