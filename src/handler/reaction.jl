@@ -23,7 +23,7 @@ struct HappyReactor <: AbstractReactor end
 
 function reactions(::HappyReactor, m::Message)
     words = ["happy", "nice", "great", "awesome", "cheers", "yay", "yayy", "congratulations", "it helped", "appriciate", "noice", "thanks"]
-    if any(occursin.(words, m.content))
+    if any(occursin.(words, lowercase(m.content)))
         return ['😄']
     end
     return NO_REACTION
@@ -33,7 +33,7 @@ struct DisappointedReactor <: AbstractReactor end
 
 function reactions(::DisappointedReactor, m::Message)
     words = ["disappointed", "unhappy", "sad", "aw shucks", "yeow"]
-    if any(occursin.(words, m.content))
+    if any(occursin.(words, lowercase(m.content)))
         return ['😞']
     end
     return NO_REACTION
@@ -43,7 +43,7 @@ struct ExcitedReactor <: AbstractReactor end
 
 function reactions(::ExcitedReactor, m::Message)
     words = ["excited", "fantastic", "fabulous", "wonderful", "looking forward to", "love", "learn", "julia", "saved me", "beautiful"]
-    if any(occursin.(words, m.content))
+    if any(occursin.(words, lowercase(m.content)))
         return ['🤩']
     end
     return NO_REACTION
@@ -53,7 +53,7 @@ struct GoodbyeReactor <: AbstractReactor end
 
 function reactions(::GoodbyeReactor, m::Message)
     words = ["cya", "bye", "goodbye", "ciao", "adios"]
-    if any(occursin.(words, m.content))
+    if any(occursin.(words, lowercase(m.content)))
         return ['👋']
     end
     return NO_REACTION
